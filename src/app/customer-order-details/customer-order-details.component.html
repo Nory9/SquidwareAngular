@@ -1,0 +1,39 @@
+<div class="orders-container" *ngIf="!isLoading; else loading">
+    <h2>Customer Orders</h2>
+    <div class="back-button-container">
+        <button class="back-button" (click)="goBack()">
+          &#8592; Back to Profile
+        </button>
+      </div>
+    <div *ngIf="orders.length > 0; else noOrders">
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th>Order Date</th>
+            <th>Items</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.orderDate | date: 'medium' }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let item of parseItems(order.products)">{{ item }}</li>
+              </ul>
+            </td>
+            <td>${{ order.totalPrice | number: '1.2-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <div class="loading-message">Loading orders...</div>
+  </ng-template>
+  
+  <ng-template #noOrders>
+    <div class="no-orders-message">No orders found for this customer.</div>
+  </ng-template>
+  

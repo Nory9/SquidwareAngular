@@ -1,57 +1,85 @@
 <div class="profile-container" *ngIf="customer; else loading">
     <div class="profile-card">
-      <!-- Profile Header -->
-      <div class="profile-header">
-        <img src="assets/profile-placeholder.png" alt="Customer Photo" class="profile-photo" />
-        <h2>{{ customer.name }}</h2>
+
+        <div class="back-button-container">
+            <button class="back-button" (click)="goBackToCustomers()">
+              &#8592; Back to Customers
+            </button>
+        </div>
+        <div class="profile-header">
+        <img src="assets/profile-placeholder.jpg" alt="Customer Photo" class="profile-photo" />
         <p class="profile-status">
           <span *ngIf="customer.vip_status" class="vip-badge">VIP Customer</span>
           <span *ngIf="!customer.vip_status" class="regular-badge">Regular Customer</span>
         </p>
       </div>
   
-      <!-- Profile Details -->
+
       <div class="profile-details">
-        <div class="detail">
-          <strong>Email:</strong>
-          <span *ngIf="!editMode">{{ customer.email }}</span>
-          <input
-            *ngIf="editMode"
-            [(ngModel)]="customer.email"
-            type="email"
-            placeholder="Enter email"
-            class="editable-input"
-          />
+        <div class="detail-row">
+          <label>Name:</label>
+          <div>
+            <span *ngIf="!editMode">{{ customer.name }}</span>
+            <input
+              *ngIf="editMode"
+              [(ngModel)]="customer.name"
+              type="text"
+              placeholder="Enter name"
+              class="editable-input"
+            />
+          </div>
         </div>
-        <div class="detail">
-          <strong>Phone:</strong>
-          <span *ngIf="!editMode">{{ customer.phone }}</span>
-          <input
-            *ngIf="editMode"
-            [(ngModel)]="customer.phone"
-            type="text"
-            placeholder="Enter phone"
-            class="editable-input"
-          />
+      
+        <div class="detail-row">
+          <label>Email:</label>
+          <div>
+            <span *ngIf="!editMode">{{ customer.email }}</span>
+            <input
+              *ngIf="editMode"
+              [(ngModel)]="customer.email"
+              type="email"
+              placeholder="Enter email"
+              class="editable-input"
+            />
+          </div>
         </div>
-        <div class="detail">
-          <strong>Favorite Burger:</strong>
-          <span>{{ customer.favorite_burger || 'N/A' }}</span>
+      
+        <div class="detail-row">
+          <label>Phone:</label>
+          <div>
+            <span *ngIf="!editMode">{{ customer.phone }}</span>
+            <input
+              *ngIf="editMode"
+              [(ngModel)]="customer.phone"
+              type="text"
+              placeholder="Enter phone"
+              class="editable-input"
+            />
+          </div>
         </div>
-        <div class="detail">
-          <strong>Total Spent:</strong>
-          <span>${{ customer.total_spent }}</span>
+      
+        <div class="detail-row">
+          <label>Favorite Burger:</label>
+          <div>
+            <span>{{ customer.favorite_burger || '--' }}</span>
+          </div>
+        </div>
+      
+        <div class="detail-row">
+          <label>Total Spent:</label>
+          <div>
+            <span>${{ customer.total_spent }}</span>
+          </div>
         </div>
       </div>
-  
-      <!-- Profile Actions -->
+      
       <div class="profile-actions">
         <button *ngIf="!editMode" class="action-btn update-btn" (click)="toggleEditMode()">Update Profile</button>
         <div *ngIf="editMode">
           <button class="action-btn save-btn" (click)="saveChanges()">Save</button>
           <button class="action-btn cancel-btn" (click)="toggleEditMode()">Cancel</button>
         </div>
-        <button class="action-btn orders-btn" (click)="viewOrders()">View Orders</button>
+        <button class="action-btn orders-btn"[routerLink]="['/customer-order', customer.id]">View Orders</button>
       </div>
     </div>
   </div>

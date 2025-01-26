@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
 import { CustomerService } from '../services/customer.service';
 import { Customer } from '../model/customer.type';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-profile',
-  imports:[CommonModule,FormsModule],
+  imports:[CommonModule,FormsModule,RouterLink],
   templateUrl: './customer-profile.component.html',
   styleUrls: ['./customer-profile.component.css'],
 })
@@ -19,7 +19,8 @@ export class CustomerProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private customerService: CustomerService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -44,30 +45,56 @@ export class CustomerProfileComponent implements OnInit {
   }
 
   saveChanges(): void {
-    if (this.customer) {
-      this.customerService.updateCustomer(this.customer.id, this.customer).subscribe({
-        next: (message) => {
-          this.snackBar.open(message, 'Close', { duration: 3000 });
-          this.editMode = false;
-        },
-        error: (err) => {
-          if (err.status === 409) {
-            this.snackBar.open(err.error || 'Email is already in use. Please try another.', 'Close', {
-              duration: 5000,
-              panelClass: 'error-snackbar',
-            });
-          } else {
-            console.error('Error updating customer:', err);
-            this.snackBar.open('Failed to update profile. Please try again.', 'Close', {
-              duration: 3000,
-              panelClass: 'error-snackbar',
-            });
-          }
-        },
-      });
+    if (!this.customer) {
+      return;
     }
+  
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.customer.email)) {
+      this.snackBar.open('Invalid email format. Please enter a valid email.', 'Close', {
+        duration: 5000,
+        panelClass: 'error-snackbar',
+      });
+      return;
+    }
+  
+    // Validate phone number (10 digits)
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(this.customer.phone)) {
+      this.snackBar.open('Invalid phone number. Please enter a 10-digit phone number.', 'Close', {
+        duration: 5000,
+        panelClass: 'error-snackbar',
+      });
+      return;
+    }
+  
+    // Proceed with saving changes
+    this.customerService.updateCustomer(this.customer.id, this.customer).subscribe({
+      next: (message) => {
+        this.snackBar.open('Profile updated successfully!', 'Close', { duration: 3000 });
+        this.editMode = false;
+      },
+      error: (err) => {
+        if (err.status === 409) {
+          this.snackBar.open(err.error || 'Email is already in use. Please try another.', 'Close', {
+            duration: 5000,
+            panelClass: 'error-snackbar',
+          });
+        } else {
+          console.error('Error updating customer:', err);
+          this.snackBar.open('Failed to update profile. Please try again.', 'Close', {
+            duration: 3000,
+            panelClass: 'error-snackbar',
+          });
+        }
+      },
+    });
   }
   
+  goBackToCustomers(): void {
+    this.router.navigate(['/']);
+  }
 
   viewOrders(): void {
     if (this.customer) {
