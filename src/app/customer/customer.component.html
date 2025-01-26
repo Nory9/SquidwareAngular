@@ -5,15 +5,25 @@
           <th>Name</th>
           <th>Email</th>
           <th>Phone</th>
+          <th>Lifetime Total Spend</th>
           <th>Favorite Burger</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of customers">
-          <td>{{ customer.name }}</td>
+        <tr *ngFor="let customer of customers" [ngClass]="{'vip-customer': customer.vip_status}">
+          <td>
+            {{ customer.name }}
+            <span *ngIf="customer.vip_status" class="vip-badge">VIP</span>
+          </td>
           <td>{{ customer.email }}</td>
           <td>{{ customer.phone }}</td>
-          <td>{{ customer.favoriteBurger || 'N/A' }}</td>
+          <td>{{ customer.total_spent }}</td>
+          <td>{{ customer.favorite_burger || '--' }}</td>
+          <td>
+            <button [routerLink]="['/customer-profile', customer.id]">View Profile</button>
+            <button (click)="deleteCustomer(customer.id)">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>

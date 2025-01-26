@@ -1,0 +1,154 @@
+/* Center the container */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background-color: #f5f7fa;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+  }
+  
+  /* Larger profile card */
+  .profile-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    width: 500px;
+    text-align: center;
+  }
+  
+  /* Profile header */
+  .profile-header {
+    margin-bottom: 30px;
+  }
+  
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .profile-header h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: #333;
+  }
+  
+  .profile-status {
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .vip-badge {
+    background-color: gold;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .regular-badge {
+    background-color: #e0e0e0;
+    color: #555;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* Profile details */
+  .profile-details {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .detail {
+    margin: 15px 0;
+    font-size: 1.1rem;
+  }
+  
+  .detail strong {
+    color: #333;
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .detail span,
+  .editable-input {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .editable-input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  /* Actions */
+  .profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .action-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .update-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .update-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .save-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .save-btn:hover {
+    background-color: #218838;
+  }
+  
+  .cancel-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #c82333;
+  }
+  
+  .orders-btn {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .orders-btn:hover {
+    background-color: #117a8b;
+  }
+  
+  /* Loading message */
+  .loading-message {
+    font-size: 1.5rem;
+    color: #555;
+    text-align: center;
+  }
+  

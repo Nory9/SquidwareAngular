@@ -1,16 +1,31 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Customer } from '../model/customer.type';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CustomerService {
-  getCustomers(): Customer[] {
-    return [
-      { id: 1, name: 'John Doe', email: 'john.doe@example.com', phone: '123-456-7890', favoriteBurger: 'Cheeseburger' },
-      { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com', phone: '987-654-3210', favoriteBurger: 'Veggie Burger' },
-      { id: 3, name: 'Sam Wilson', email: 'sam.wilson@example.com', phone: '555-555-5555', favoriteBurger: 'Chicken Burger' },
-    ];
+  private apiUrl = 'http://localhost:8080/api/customers'; 
+
+  constructor(private http: HttpClient) {}
+
+  getCustomers(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.apiUrl);
   }
+
+  getCustomerById(id: number): Observable<Customer> {
+    return this.http.get<Customer>(`${this.apiUrl}/${id}`);
+  }
+
+  deleteCustomer(customerId: number): Observable<string> {
+    return this.http.delete(`${this.apiUrl}/${customerId}`, { responseType: 'text' });
+  }
+
+  updateCustomer(customerId: number, customer: Customer): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${customerId}`, customer, { responseType: 'text' });
+  }
+  
   
 }

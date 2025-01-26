@@ -3,6 +3,8 @@ export interface Customer {
     name: string;
     email: string;
     phone: string;
-    favoriteBurger?: string; 
+    favorite_burger?: string; 
+    total_spent: DoubleRange;
+    vip_status: Boolean
   }
   
