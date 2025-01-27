@@ -8,6 +8,7 @@
     padding: 20px;
   }
     .profile-card {
+      position: relative;
     background: white;
     padding: 40px;
     border-radius: 20px;
@@ -121,32 +122,25 @@
     transition: background-color 0.3s ease;
   }
   
-  .profile-actions {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-  }
   
-  .action-btn {
-    padding: 12px 20px;
-    font-size: 1rem;
+  .update-icon {
+    position: absolute;
+    top: 55px;
+    right: 40px;
+    background: none;
     border: none;
-    border-radius: 8px;
+    font-size: 24px;
+    color: #007bff;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: transform 0.3s, color 0.3s;
   }
   
-  .update-btn {
-    background-color: #007bff;
-    color: white;
+  .update-icon:hover {
+    color: #0056b3;
+    transform: scale(1.2);
   }
   
-  .update-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-
-  }
+  
   
   .save-btn {
     background-color: #28a745;
@@ -194,19 +188,67 @@
   }
   
   .back-button {
-    background-color: #007bff;
-    color: white;
+    background-color: #ffff;
+    color: #333;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 2rem;
     transition: background-color 0.3s ease;
   }
   
   .back-button:hover {
-    background-color: #0056b3;
+    background-color: #f1f1f1;
     transform: scale(1.05);
 
+  }
+  .profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .action-btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .action-btn:hover {
+    transform: scale(1.05);
+  }
+  
+
+  .orders-btn {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .orders-btn:hover {
+    background-color: #117a8b;
+  }
+  
+  .save-btn {
+    margin-right: 10px;
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .save-btn:hover {
+    background-color: #218838;
+  }
+  
+  .cancel-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #c82333;
   }
   
