@@ -21,4 +21,12 @@ export const routes: Routes = [{
         return import('./customer-order-details/customer-order-details.component').then((m=> m.CustomerOrderDetailsComponent))
     }    
 }
+,
+{
+    path: 'add-customer',
+    pathMatch: 'full',
+    loadComponent: ()=>{
+        return import('./add-customer/add-customer.component').then((m=> m.AddCustomerComponent))
+    }    
+}
 ];

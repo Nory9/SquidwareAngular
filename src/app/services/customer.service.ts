@@ -23,6 +23,10 @@ export class CustomerService {
     return this.http.delete(`${this.apiUrl}/${customerId}`, { responseType: 'text' });
   }
 
+  addCustomer(customer: any): Observable<any> {
+    return this.http.post('http://localhost:8080/api/customers', customer,{responseType:'text'});
+  }
+
   updateCustomer(customerId: number, customer: Customer): Observable<any> {
     return this.http.put(`${this.apiUrl}/${customerId}`, customer, { responseType: 'text' });
   }

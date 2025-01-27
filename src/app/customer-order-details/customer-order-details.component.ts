@@ -7,19 +7,19 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer-order-details',
-  imports:[CommonModule,RouterLink],
+  imports:[CommonModule],
   templateUrl: './customer-order-details.component.html',
   styleUrls: ['./customer-order-details.component.css'],
 })
 export class CustomerOrderDetailsComponent implements OnInit {
-  @Input() customerId!: number; // Expect customerId to be passed as input
+  @Input() customerId!: number; 
   orders: Order[] = [];
   isLoading = true;
 
   constructor(private route: ActivatedRoute, private orderService: OrderService,private router: Router) {}
 
   ngOnInit(): void {
-    // Retrieve customerId from the route
+  
     this.customerId = Number(this.route.snapshot.paramMap.get('id'));
     console.log('Customer ID:', this.customerId);
 
@@ -35,7 +35,7 @@ export class CustomerOrderDetailsComponent implements OnInit {
     return products.split(',');
   }
   
-  // Fetch orders for the given customer
+
   fetchOrders(): void {
     this.orderService.getOrdersByCustomerId(this.customerId).subscribe({
       next: (data: Order[]) => {

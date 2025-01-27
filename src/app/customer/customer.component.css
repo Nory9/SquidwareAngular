@@ -1,34 +1,36 @@
 .table-container {
-    margin: 20px auto;
+    margin: 30px auto;
     overflow-x: auto;
     max-width: 90%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background-color: #fff;
-    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    background-color: #ffffff;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
+    text-align: left;
 }
 
 th {
-    background-color: #f3f3f3;
-    color: #333;
+    background-color: #8c97a2;
+    color: #f3f3f3;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 12px;
+    padding: 15px;
+    border: none;
+
 }
 
 td {
+    padding: 12px;
     border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-    vertical-align: middle;
 }
 
 tr:nth-child(even) {
@@ -42,11 +44,10 @@ tr:nth-child(odd) {
 tr:hover {
     background-color: #f1f1f1;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .vip-customer {
-    background-color: rgb(253, 235, 141) !important;
-    color: #333;
     font-weight: bold;
 }
 
@@ -56,31 +57,59 @@ tr:hover {
     font-weight: bold;
     font-size: 12px;
     margin-left: 8px;
-    padding: 2px 6px;
-    border-radius: 4px;
-    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 6px;
 }
 
 button {
-    padding: 8px 12px;
+    padding: 10px 16px;
     font-size: 14px;
     color: white;
+    background-color: #007bff;
+    margin-left: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button.delete-btn {
+    background-color: #dc3545;
+}
+
+button.delete-btn:hover {
+    background-color: #a71d2a;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.pagination button {
+    padding: 10px 16px;
     background-color: #647d98;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+.pagination button:hover {
     background-color: #5f6872;
 }
 
-button:nth-child(2) {
-    margin-left: 10px;
-    background-color: #dc3545;
-}
-
-button:nth-child(2):hover {
-    background-color: #a71d2a;
+.pagination button.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }

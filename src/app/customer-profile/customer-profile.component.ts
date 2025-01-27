@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class CustomerProfileComponent implements OnInit {
   customer?: Customer;
-  editMode: boolean = false; // Flag to toggle edit mode
+  editMode: boolean = false; 
 
   constructor(
     private route: ActivatedRoute,
@@ -41,7 +41,7 @@ export class CustomerProfileComponent implements OnInit {
   }
 
   toggleEditMode(): void {
-    this.editMode = !this.editMode; // Toggle edit mode
+    this.editMode = !this.editMode; 
   }
 
   saveChanges(): void {
@@ -49,7 +49,7 @@ export class CustomerProfileComponent implements OnInit {
       return;
     }
   
-    // Validate email
+  
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(this.customer.email)) {
       this.snackBar.open('Invalid email format. Please enter a valid email.', 'Close', {
@@ -59,7 +59,7 @@ export class CustomerProfileComponent implements OnInit {
       return;
     }
   
-    // Validate phone number (10 digits)
+    
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(this.customer.phone)) {
       this.snackBar.open('Invalid phone number. Please enter a 10-digit phone number.', 'Close', {
@@ -69,7 +69,7 @@ export class CustomerProfileComponent implements OnInit {
       return;
     }
   
-    // Proceed with saving changes
+   
     this.customerService.updateCustomer(this.customer.id, this.customer).subscribe({
       next: (message) => {
         this.snackBar.open('Profile updated successfully!', 'Close', { duration: 3000 });

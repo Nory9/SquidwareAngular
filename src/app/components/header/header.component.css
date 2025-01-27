@@ -2,49 +2,48 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f1f1f1; /* Light background for elegance */
+    background-color: #f1f1f1; 
     padding: 15px 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
   }
   
   .header img {
-    width: 60px; /* Compact and stylish size */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Circular logo */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for a pop */
+    width: 60px; 
+    height: auto; 
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   }
   
   .header .logo-text {
     font-size: 24px;
     font-weight: bold;
-    color: #333; /* Neutral text color for contrast */
+    color: #333; 
     margin-left: 10px;
   }
   
   .header a {
-    color: #555; /* Muted color for links */
+    color: #555; 
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     padding: 10px 15px;
-    border-radius: 8px; /* Smooth button-like links */
-    transition: all 0.3s ease-in-out; /* Smooth hover animation */
+    border-radius: 8px; 
+    transition: all 0.3s ease-in-out; 
   }
   
   .header a:hover {
-    background-color: #007bff; /* Blue background on hover */
-    color: #fff; /* White text on hover */
+    color: #1d1616; 
   }
   
   .header a.active {
-    background-color: #0056b3; /* Darker blue for active link */
-    color: #fff; /* White text for active link */
+    color: #1d1616;
   }
   
   .header-right {
     display: flex;
-    gap: 15px; /* Space between links */
+    margin-right: 40px;
+    gap: 15px;
   }
   
   @media screen and (max-width: 500px) {

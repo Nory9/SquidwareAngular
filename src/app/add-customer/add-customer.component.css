@@ -1,0 +1,99 @@
+.form-container {
+    margin: 40px auto;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px; 
+}
+
+
+label {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+
+input {
+    width: 80%; 
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+
+input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input.ng-touched.ng-invalid {
+    border-color: #dc3545; 
+}
+
+
+input.ng-touched.ng-valid {
+    border-color: #28a745; 
+}
+
+
+.error-message {
+    color: #dc3545; 
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: center; 
+}
+
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.btn-submit {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #007bff; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+.btn-submit:disabled {
+    background-color: #b3d7ff; 
+    cursor: not-allowed;
+}
+
+
+.btn-submit:hover:not(:disabled) {
+    background-color: #0056b3; 
+    transform: scale(1.05);
+    
+}

@@ -1,31 +1,36 @@
 <div class="table-container">
-    <table>
+  <table>
       <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Lifetime Total Spend</th>
-          <th>Favorite Burger</th>
-          <th>Actions</th>
-        </tr>
+          <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Lifetime Total Spend</th>
+              <th>Favorite Burger</th>
+              <th>Actions</th>
+          </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of customers" [ngClass]="{'vip-customer': customer.vip_status}">
-          <td>
-            {{ customer.name }}
-            <span *ngIf="customer.vip_status" class="vip-badge">VIP</span>
-          </td>
-          <td>{{ customer.email }}</td>
-          <td>{{ customer.phone }}</td>
-          <td>{{ customer.total_spent }}</td>
-          <td>{{ customer.favorite_burger || '--' }}</td>
-          <td>
-            <button [routerLink]="['/customer-profile', customer.id]">View Profile</button>
-            <button (click)="deleteCustomer(customer.id)">Delete</button>
-          </td>
-        </tr>
+          <tr *ngFor="let customer of paginatedCustomers" [ngClass]="{'vip-customer': customer.vip_status}">
+              <td>
+                  {{ customer.name }}
+                  <span *ngIf="customer.vip_status" class="vip-badge">VIP</span>
+              </td>
+              <td>{{ customer.email }}</td>
+              <td>{{ customer.phone }}</td>
+              <td>${{ customer.total_spent }}</td>
+              <td>{{ customer.favorite_burger || '--' }}</td>
+              <td>
+                  <button [routerLink]="['/customer-profile', customer.id]">View Profile</button>
+                  <button class="delete-btn" (click)="deleteCustomer(customer.id)">Delete</button>
+              </td>
+          </tr>
       </tbody>
-    </table>
+  </table>
+
+  <div class="pagination">
+      <button [disabled]="currentPage === 1" (click)="prevPage()">Previous</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
   </div>
-  
+</div>
