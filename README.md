@@ -1,59 +1,86 @@
-# SquidwareFront
+# Squidward's Customer Management System 
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+Squidward's Customer Management System (Frontend) is an Angular application designed to manage customer profiles and their associated orders seamlessly. The application provides a user-friendly interface to interact with the backend services, allowing easy visualization and management of customer and order data.
 
-## Development server
+---
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+- **Customer Management**:
+  - View all customer profiles in a table.
+  - Add new customers with validations for email and phone numbers.
+  - Edit customer profiles with real-time updates.
+  - Delete customers.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Order Management**:
+  - View all orders for a specific customer in an organized layout.
+  
 
-## Code scaffolding
+- **Responsive Design**:
+  - Ensures a smooth experience across different devices and screen sizes.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Notifications**:
+  - Success and error messages displayed using Angular Material SnackBars.
 
-```bash
-ng generate component component-name
-```
+- **Sample Data**:
+  - The application works seamlessly with the preloaded database provided by the backend.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Technologies Used
 
-## Building
+- **Angular 19**: Framework for building the frontend application.
+- **TypeScript**: Programming language for developing Angular components and services.
+- **Angular Material**: Library for UI components, including:
+  - SnackBars for notifications.
+- **HTML5 & CSS**: For structure and styling.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## Setup and Installation
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1. **Download and Unzip the Project**:
+   - Unzip the project folder into your desired directory.
 
-## Running unit tests
+2. **Install Dependencies**:
+   - Navigate to the project folder.
+   - Run the following command to install all required dependencies:
+     ```bash
+     npm install
+     ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+3. **Configure the Environment**:
+   - Update the `environment.ts` file located in the `src/environments` folder with the correct API base URL (the backend URL):
+     ```typescript
+     export const environment = {
+       apiUrl: 'http://localhost:8080/api',
+     };
+     ```
 
-```bash
-ng test
-```
+4. **Run the Application**:
+   - Start the Angular development server:
+     ```bash
+     ng serve
+     ```
+   - Open your browser and navigate to `http://localhost:4200`.
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## Features Overview
 
-```bash
-ng e2e
-```
+### Customers
+- **List View**: Displays all customers with details such as name, email, phone, total spend, and favorite burger.
+- **Add Customer**: Form with input validation for email and phone numbers.
+- **Edit Profile**: Editable fields to update customer information.
+- **Delete Customer**: Removes a customer.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Orders
+- **Order Details**: Displays all orders for a specific customer, including the order date, items, and total price.
 
-## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+
+## Contact Information
+
+For questions or support, please reach out to me at **noormisk94@gmail.com**. 🦀
